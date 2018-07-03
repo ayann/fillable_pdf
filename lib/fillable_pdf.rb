@@ -1,5 +1,5 @@
 require "fillable_pdf/version"
 
 module FillablePdf
-  # Your code goes here...
+  Pdftk = PdfForms.new(ENV['PDFTK_PATH'] || '/usr/bin/pdftk')
 end
