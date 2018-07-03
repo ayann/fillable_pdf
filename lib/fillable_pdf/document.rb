@@ -18,5 +18,15 @@ module FillablePdf
       File.exist?(document) && File.unlink(document)
       blob
     end
+
+    def fill(field, value)
+      attributes[field.to_s] = value
+    end
+
+    def fill_out(**args)
+      args.each do |field, value|
+        fill(field, value)
+      end
+    end
   end
 end
