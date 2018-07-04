@@ -24,10 +24,11 @@ Or install it yourself as:
 
 ```ruby
 class ContractPdf < FillablePdf::Document
-  alias customer context
+  attr_reader :customer
 
   def initialize(customer)
-    super(File.joins('/path/to/template'), customer)
+    @customer = customer
+    super(File.joins('/path/to/template'))
     fill_out(data)
   end
 
