@@ -48,9 +48,19 @@ end
 
 @contract_pdf.write # => tempfile
 @contract_pdf.read  # => file blob
-
 ```
 
+```ruby
+  document = FillablePdf::Document.new('/path/to/template')
+
+  document.fill :first_name, 'John'
+  document.fill :last_name, 'Smith'
+  # OR
+  document.fill_out { first_name: 'John', last_name: 'Smith' }
+
+  document.write # => return tempfile
+  document.read # => return file blob
+```
 TODO: Write usage instructions here
 
 ## Development
