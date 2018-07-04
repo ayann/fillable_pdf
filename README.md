@@ -42,6 +42,13 @@ class ContractPdf < FillablePdf::Document
     }
   end
 end
+
+@customer     = User::Customer.find(20)
+@contract_pdf = ContractPdf.new(@customer)
+
+@contract_pdf.write # => tempfile
+@contract_pdf.read  # => file blob
+
 ```
 
 TODO: Write usage instructions here
