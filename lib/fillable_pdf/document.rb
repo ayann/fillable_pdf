@@ -1,10 +1,11 @@
 module FillablePdf
   class Document
     attr_accessor :template
-    attr_reader :fields
+    attr_reader :fields, :context
 
-    def initialize(template)
+    def initialize(template, context = nil)
       @template = template
+      @context  = context
       @fields   = initialize_fields
     end
 

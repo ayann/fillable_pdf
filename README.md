@@ -22,6 +22,27 @@ Or install it yourself as:
 
 ## Usage
 
+```ruby
+class ContractPdf < FillablePdf::Document
+  alias customer context
+
+  def initialize(customer)
+    super(File.joins('/path/to/template'), customer)
+    fill_out(data)
+  end
+
+  protected
+
+  def data
+    {
+      last_name:  customer.last_name,
+      first_name: customer.first_name,
+      address:    customer.address
+    }
+  end
+end
+```
+
 TODO: Write usage instructions here
 
 ## Development
