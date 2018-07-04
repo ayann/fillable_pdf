@@ -1,6 +1,9 @@
-require "fillable_pdf/version"
 require 'securerandom'
+require 'pdf_forms'
+
+require 'fillable_pdf/version'
+require 'fillable_pdf/document'
 
 module FillablePdf
-  Pdftk = PdfForms.new(ENV['PDFTK_PATH'] || '/usr/bin/pdftk')
+  Form = PdfForms.new(ENV['PDFTK_PATH'], utf8_fields: true)
 end
